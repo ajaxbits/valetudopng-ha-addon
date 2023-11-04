@@ -12,9 +12,9 @@ arch:
   - amd64
 init: false
 ports:
-  - "3000/tcp": 3000
+  3000/tcp: 3000
 ports_description:
-  - "3000/tcp": valetudopng frontend port
+  3000/tcp: valetudopng frontend port
 map:
   - share:rw
   - config:rw
