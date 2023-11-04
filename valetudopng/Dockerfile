@@ -34,7 +34,7 @@ RUN set -eux \
 FROM base as release
 
 COPY rootfs /
-COPY --from=build /app .
+COPY --from=build /app ./app
 RUN chmod +x /docker_entrypoint.sh
 
 ENTRYPOINT [ "/sbin/tini", "--", "/docker_entrypoint.sh"]
