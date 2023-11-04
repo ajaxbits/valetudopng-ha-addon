@@ -1,4 +1,5 @@
 #!/usr/bin/env bashio
+set -x
 
 bashio::log.info "Preparing to start..."
 
@@ -15,4 +16,4 @@ fi
 
 bashio::log.info "Starting valetudopng..."
 cd /app
-exec valetudo
+exec valetudopng
