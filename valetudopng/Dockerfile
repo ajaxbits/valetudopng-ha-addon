@@ -12,21 +12,22 @@ RUN set -eux \
     && mkdir -p /app/bin \
     && case "${BUILD_ARCH}" in \
         aarch64) \
-            VALETUDO_ARCH="arm64" \
+            VALETUDOPNG_FILENAME="valetudopng_v${VALETUDOPNG_VERSION}_linux_arm64" \
             ;; \
         amd64) \
-            VALETUDO_ARCH="amd64" \
+            VALETUDOPNG_FILENAME="valetudopng_v${VALETUDOPNG_VERSION}_linux_amd64" \
             ;; \
         armv7) \
-            VALETUDO_ARCH="armv7" \
+            VALETUDOPNG_FILENAME="valetudopng_v${VALETUDOPNG_VERSION}_linux_armv7" \
             ;; \
         *) \
             echo "Unsupported build architecture: ${BUILD_ARCH}" >&2 \
             exit 1 \
             ;; \
     esac \
-    && wget -O "/tmp/valetudopng.tar.gz" "https://github.com/erkexzcx/valetudopng/releases/download/v${VALETUDOPNG_VERSION}/valetudopng_v${VALETUDOPNG_VERSION}_linux_${VALETUDO_ARCH}.tar.gz" \
-    && tar -xvzf "/tmp/valetudopng.tar.gz" -C "/app/bin"
+    && wget "https://github.com/erkexzcx/valetudopng/releases/download/v${VALETUDOPNG_VERSION}/${VALETUDOPNG_FILENAME}.tar.gz" \
+    && tar -xvzf "${VALETUDOPNG_FILENAME}.tar.gz" \
+    && mv "${VALETUDOPNG_FILENAME}" /app/bin/valetudopng
 
 #############
 
