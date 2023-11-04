@@ -16,7 +16,7 @@ if ! bashio::fs.directory_exists $VALETUDOPNG_DATA; then
         || bashio::exit.nok 'Failed to create initial ValetudoPNG configuration'
 fi
 
-if ! bashio::fs.file_exists "$VALETUDOPNG_DATA/config.yaml"; then
+if ! bashio::fs.file_exists "$VALETUDOPNG_DATA/config.yml"; then
     bashio::exit.nok "Could not find $VALETUDOPNG_DATA/config.yaml. Please ensure it exists"
 fi
 
