@@ -109,7 +109,8 @@ jobs:
           args: |
             ${{ env.BUILD_ARGS }} \
             --${{ matrix.arch }} \
+            --docker-hub "ghcr.io" \
             --target /data/${{ matrix.addon }} \
             --image "${{ steps.check.outputs.image }}" \
-            --docker-hub "ghcr.io" \
+            --self-cache \
             --addon
