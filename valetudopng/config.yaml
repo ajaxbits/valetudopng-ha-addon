@@ -1,0 +1,25 @@
+# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
+name: Valetudopng
+version: "1.0.14"
+slug: valetudopng
+description: Valetudopng addon
+url: "https://github.com/home-assistant/addons-example/tree/main/example"
+services:
+  - mqtt:need
+arch:
+  - armv7
+  - aarch64
+  - amd64
+init: false
+ports:
+  - "3000/tcp": 3000
+ports_description:
+  - "3000/tcp": valetudopng frontend port
+map:
+  - share:rw
+  - config:rw
+options:
+  data_path: "/config/valetudopng"
+schema:
+  data_path: "str"
+image: "valetudopng/valetudopng-{arch}"
