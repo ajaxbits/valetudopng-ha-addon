@@ -33,6 +33,7 @@ fi
 # fi
 
 bashio::log.info "Starting ValetudoPNG..."
+ls /
 cd /app
 cp ${VALETUDOPNG_DATA}/config.yml /app/.
 exec valetudopng
