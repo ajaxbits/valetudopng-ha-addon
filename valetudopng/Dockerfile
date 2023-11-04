@@ -37,4 +37,4 @@ WORKDIR /app
 COPY rootfs /
 COPY --from=build /app/bin ./bin
 
-ENTRYPOINT [ "/sbin/tini", "--", "/docker-entrypoint.sh"]
+ENTRYPOINT [ "/sbin/tini", "--", "/docker_entrypoint.sh"]
