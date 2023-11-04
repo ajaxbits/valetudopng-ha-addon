@@ -22,4 +22,4 @@ options:
   data_path: "/config/valetudopng"
 schema:
   data_path: "str"
-image: "ghcr.io/ajaxbits/valetudopng/valetudopng-ha-addon-{arch}"
+image: "ghcr.io/ajaxbits/valetudopng/valetudopng-addon-{arch}"
