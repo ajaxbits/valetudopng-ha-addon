@@ -9,7 +9,7 @@ FROM base as build
 ARG VALETUDOPNG_VERSION BUILD_ARCH
 RUN set -eux \
     && apk add --no-cache wget \
-    && mkdir -p /app/bin \
+    && mkdir -p /app \
     && case "${BUILD_ARCH}" in \
         aarch64) \
             VALETUDOPNG_FILENAME="valetudopng_v${VALETUDOPNG_VERSION}_linux_arm64" \
@@ -27,15 +27,14 @@ RUN set -eux \
     esac \
     && wget "https://github.com/erkexzcx/valetudopng/releases/download/v${VALETUDOPNG_VERSION}/${VALETUDOPNG_FILENAME}.tar.gz" \
     && tar -xvzf "${VALETUDOPNG_FILENAME}.tar.gz" \
-    && mv "${VALETUDOPNG_FILENAME}" /app/bin/valetudopng
+    && mv "${VALETUDOPNG_FILENAME}" /app/valetudopng
 
 #############
 
 FROM base as release
 
-WORKDIR /app
 COPY rootfs /
-COPY --from=build /app/bin ./bin
+COPY --from=build /app .
 RUN chmod +x /docker_entrypoint.sh
 
 ENTRYPOINT [ "/sbin/tini", "--", "/docker_entrypoint.sh"]

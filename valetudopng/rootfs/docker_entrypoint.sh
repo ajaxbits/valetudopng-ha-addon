@@ -34,4 +34,4 @@ fi
 
 bashio::log.info "Starting ValetudoPNG..."
 cd /app
-exec ./bin/valetudopng
+exec ./valetudopng
