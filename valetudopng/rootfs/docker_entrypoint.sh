@@ -10,6 +10,12 @@ bashio::log.info "Preparing to start..."
 bashio::config.require 'data_path'
 
 export VALETUDOPNG_DATA="$(bashio::config 'data_path')"
+
+if ! bashio::fs.directory_exists $VALETUDOPNG_DATA; then
+    mkdir -p $VALETUDOPNG_DATA \
+        || bashio::exit.nok 'Failed to create initial AppDaemon configuration'
+fi
+
 if ! bashio::fs.file_exists "$VALETUDOPNG_DATA/config.yaml"; then
     bashio::exit.nok "Could not find $VALETUDOPNG_DATA/config.yaml. Please ensure it exists"
 fi
