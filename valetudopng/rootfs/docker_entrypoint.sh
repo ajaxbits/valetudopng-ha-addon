@@ -16,8 +16,8 @@ if ! bashio::fs.directory_exists $VALETUDOPNG_DATA; then
         || bashio::exit.nok 'Failed to create initial ValetudoPNG configuration'
 fi
 
-if ! bashio::fs.file_exists "$VALETUDOPNG_DATA/config.yml"; then
-    bashio::exit.nok "Could not find $VALETUDOPNG_DATA/config.yaml. Please ensure it exists"
+if ! bashio::fs.file_exists "${VALETUDOPNG_DATA}/config.yml"; then
+    bashio::exit.nok "Could not find ${VALETUDOPNG_DATA}/config.yml. Please ensure it exists"
 fi
 
 # TODO: expose all config in frontend. Can detect mosquitto automatically with the below
@@ -34,4 +34,5 @@ fi
 
 bashio::log.info "Starting ValetudoPNG..."
 cd /app
-exec ./valetudopng
+cp ${VALETUDOPNG_DATA}/config.yml /app/.
+exec valetudopng
