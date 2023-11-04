@@ -3,20 +3,20 @@ name: Valetudopng
 version: "1.0.14"
 slug: valetudopng
 description: Valetudopng addon
-url: "https://github.com/home-assistant/addons-example/tree/main/example"
+url: "https://github.com/ajaxbits/valetudopng-ha-addon"
 services:
   - mqtt:need
+webui: http://[HOST]:[PORT:3000]/api/map/image/debug
 arch:
-  - armv7
   - aarch64
   - amd64
+  - armv7
 init: false
 ports:
   3000/tcp: 3000
 ports_description:
   3000/tcp: valetudopng frontend port
 map:
-  - share:rw
   - config:rw
 options:
   data_path: "/config/valetudopng"
