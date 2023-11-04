@@ -36,6 +36,5 @@ FROM base as release
 WORKDIR /app
 COPY rootfs /
 COPY --from=build /app/bin ./bin
-RUN chmod +x /docker-entrypoint.sh
 
-ENTRYPOINT [ "/sbin/tini", "--", "docker-entrypoint.sh"]
+ENTRYPOINT [ "/sbin/tini", "--", "/docker-entrypoint.sh"]
