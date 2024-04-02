@@ -38,3 +38,4 @@ COPY --from=build /app ./app
 RUN chmod +x /docker_entrypoint.sh
 
 ENTRYPOINT [ "/sbin/tini", "--", "/docker_entrypoint.sh"]
+
