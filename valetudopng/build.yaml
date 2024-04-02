@@ -9,4 +9,4 @@ labels:
   org.opencontainers.image.source: "https://github.com/ajaxbits/valetudopng-ha-addon"
   org.opencontainers.image.licenses: "Apache License 2.0"
 args:
-  VALETUDOPNG_VERSION: "1.0.14"
+  VALETUDOPNG_VERSION: "1.0.17"

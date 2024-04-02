@@ -1,6 +1,6 @@
 # https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
 name: ValetudoPNG
-version: "1.0.14"
+version: "1.0.17"
 slug: valetudopng-addon
 description: ValetudoPNG addon
 url: "https://github.com/ajaxbits/valetudopng-ha-addon"
